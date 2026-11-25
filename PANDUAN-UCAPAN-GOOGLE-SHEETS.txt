@@ -1,0 +1,50 @@
+PANDUAN: UCAPAN TAMU TAMPIL UNTUK SEMUA ORANG (Google Sheets)
+Untuk tema Foto Penuh Layar (undangan-foto.html). Dikerjakan sekali per klien, sekitar 10 menit.
+
+Tanpa langkah ini, tombol Kirim di tema foto membuka WhatsApp ke nomor mempelai (waMempelai di file data),
+dan ucapan hanya tampil di HP tamu yang menulisnya. Dengan langkah ini, semua ucapan tampil untuk semua tamu.
+
+1. Buka sheets.google.com, buat spreadsheet baru, beri nama "Ucapan Raka & Naya" (sesuaikan).
+2. Isi baris pertama (judul kolom) persis seperti ini, satu kata per kolom:
+      waktu | nama | status | jumlah | ucapan
+3. Menu Ekstensi > Apps Script. Hapus semua isinya, tempel kode ini:
+
+   function doPost(e) {
+     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+     var d = JSON.parse(e.postData.contents);
+     sheet.appendRow([d.waktu, d.nama, d.status, d.jumlah, d.ucapan || ""]);
+     return ContentService.createTextOutput("ok");
+   }
+
+   function doGet(e) {
+     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+     var baris = sheet.getDataRange().getValues();
+     var hasil = [];
+     for (var i = baris.length - 1; i >= 1; i--) {
+       hasil.push({
+         waktu: baris[i][0], nama: baris[i][1], status: baris[i][2],
+         jumlah: baris[i][3], ucapan: baris[i][4]
+       });
+     }
+     return ContentService.createTextOutput(JSON.stringify({ ucapan: hasil }))
+       .setMimeType(ContentService.MimeType.JSON);
+   }
+
+4. Klik Simpan. Lalu Terapkan (Deploy) > Deployment baru.
+   - Jenis: Aplikasi web
+   - Jalankan sebagai: Saya
+   - Siapa yang memiliki akses: Siapa saja
+   Klik Terapkan, izinkan akses jika diminta, salin "URL aplikasi web".
+5. Di file data klien (data-xxx.js), tempel URL itu:
+      urlSheets: "TEMPEL_DI_SINI",
+   Hapus bagian ucapanContoh dari file data klien sungguhan.
+6. Uji: buka undangan, kirim satu ucapan, lalu muat ulang halaman. Ucapan harus tetap tampil, dan baris baru
+   muncul di spreadsheet.
+
+Catatan penting:
+- Jika sudah mengubah kode Apps Script, buat Deployment BARU (atau Kelola deployment > Edit > Versi baru) agar perubahan aktif.
+- Setelah ucapan tampil di undangan, nama dan ucapan tamu bisa dilihat siapa saja yang membuka link undangan.
+  Beri tahu klien, dan jangan tampilkan data pribadi sensitif.
+- Bagikan spreadsheet ke klien (tombol Bagikan, akses Pelihat) supaya mereka bisa melihat daftar tamu.
+- Bagian ini belum saya uji langsung dengan akun Google. Jika ucapan tidak muncul setelah muat ulang,
+  kirim tangkapan layar ke saya.

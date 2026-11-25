@@ -1,0 +1,60 @@
+PANDUAN HOSTING EVERVOW DARI HP (GitHub Pages, gratis)
+
+Isi folder ini (semua rata, tanpa subfolder):
+  index.html                    -> halaman katalog EVERVOW
+  undangan.html                 -> tampilan undangan (dipakai semua klien, jangan diubah)
+  data-demo.js                  -> data undangan contoh (Raka & Naya)
+  data-TEMPLATE-KLIEN-BARU.js   -> salinan kosong untuk klien baru (tema Minimalis)
+  undangan-foto.html            -> tema Foto Penuh Layar (kisah cinta, galeri, hadiah, ucapan)
+  data-demo-foto.js             -> data contoh tema foto, salin untuk klien yang memilih tema ini
+
+=== A. SEKALI SAJA: PASANG KATALOG ===
+
+1. Buka github.com lewat Safari atau Chrome, pilih Sign up, daftar gratis dan verifikasi email.
+   Pilih username singkat, misalnya "theevervow". Username ini menjadi bagian alamat website.
+2. Ekstrak zip di HP: buka aplikasi Files, ketuk file zip, folder hasilnya muncul.
+3. Di GitHub, ketuk ikon + lalu "New repository".
+   - Repository name: evervow
+   - Pilih Public
+   - Ketuk "Create repository"
+4. Di halaman repository, ketuk "uploading an existing file" (atau Add file > Upload files).
+5. Ketuk "choose your files", pilih SEMUA file berakhiran .html dan .js dari folder hasil ekstrak. Tunggu selesai diunggah.
+6. Ketuk "Commit changes".
+7. Buka tab Settings > Pages. Di bagian Branch pilih "main" dan folder "/ (root)", ketuk Save.
+8. Tunggu 1 sampai 3 menit. Website Anda aktif di:
+      https://USERNAME.github.io/evervow/
+   Salin link itu ke bio Instagram @theevervow.
+   Contoh undangan:
+      https://USERNAME.github.io/evervow/undangan.html?u=demo
+
+=== B. SETIAP ADA KLIEN BARU ===
+
+Misal klien bernama Dinda dan Fajar. Beri kode: dinda-fajar (huruf kecil, pakai tanda hubung).
+
+1. Buka isi file data-TEMPLATE-KLIEN-BARU.js (ketuk file, atau buka di aplikasi catatan), salin semua isinya.
+2. Di repository GitHub: Add file > Create new file.
+   - Nama file: data-dinda-fajar.js
+   - Tempel isi tadi, lalu ganti nama, tanggal, lokasi, dan lainnya sesuai formulir klien.
+   - Ketuk Commit changes.
+3. Foto klien: Add file > Upload files. Ganti nama foto dulu agar berawalan kode klien,
+   misalnya dinda-fajar-1.jpg, dinda-fajar-2.jpg. Kecilkan ukuran foto (maksimal sekitar 300 KB per foto).
+   Lalu tulis nama foto itu di bagian foto pada data-dinda-fajar.js.
+4. Musik (jika diminta): unggah mp3 dengan cara yang sama, lalu isi bagian musik di data.
+5. Link untuk klien (tunggu 1 sampai 2 menit setelah commit):
+      https://USERNAME.github.io/evervow/undangan.html?u=dinda-fajar
+6. Link per tamu (nama tampil di sampul), spasi diganti tanda +:
+      https://USERNAME.github.io/evervow/undangan.html?u=dinda-fajar&to=Budi+Santoso
+
+=== C. MENGUBAH DATA YANG SUDAH ADA ===
+Buka file data-xxx.js di GitHub, ketuk ikon pensil, ubah, lalu Commit changes. Tunggu 1 sampai 2 menit.
+
+Tema Foto Penuh Layar: link klien memakai undangan-foto.html?u=KODE, dan foto latar diisi di bagian latar pada file data.
+
+=== TIPS ===
+- Jika halaman tidak berubah setelah commit, tutup lalu buka ulang, atau tambahkan ?v=2 di akhir link.
+- Jika tampilan GitHub di HP terasa sempit, pilih "Request Desktop Website" di menu browser.
+- Kode klien harus huruf kecil, angka, dan tanda hubung saja. Tanpa spasi.
+- Setiap ayat dan teks Arab perlu diperiksa ulang sebelum link dikirim ke klien.
+- Periksa nama, gelar, tanggal, dan lokasi bersama klien sebelum pelunasan.
+- Repository Public berarti semua orang yang tahu link bisa membukanya. Itu memang tujuannya untuk undangan.
+  Jangan menaruh data pribadi sensitif (nomor KTP, alamat rumah lengkap) di file data.

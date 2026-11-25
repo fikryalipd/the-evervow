@@ -28,7 +28,7 @@ window.UNDANGAN = {
   // FOTO LATAR tiap bagian (layar penuh). Unggah foto ke folder yang sama lalu tulis namanya.
   // Kosongkan "" jika belum ada, bagian itu memakai warna malam. Foto tegak (portrait) paling bagus.
   // Contoh: cover: "raka-naya-cover.jpg"
-  latar: { cover: "", pria: "", wanita: "", acara: "", hadiah: "", ucapan: "", penutup: "" },
+  latar: { cover: "demo-cover.jpg", pria: "demo-pria.jpg", wanita: "demo-wanita.jpg", acara: "demo-acara.jpg", hadiah: "demo-hadiah.jpg", ucapan: "demo-ucapan.jpg", penutup: "demo-penutup.jpg" },
 
   // KISAH KAMI (opsional). Hapus bagian ini atau kosongkan [] jika tidak dipakai.
   // Baris baru di dalam teks ditulis \n
@@ -39,7 +39,7 @@ window.UNDANGAN = {
   ],
 
   // GALERI: daftar foto. Kosongkan [] jika belum ada. Contoh: ["raka-naya-1.jpg", "raka-naya-2.jpg"]
-  foto: [],
+  foto: ["demo-galeri-1.jpg", "demo-galeri-2.jpg", "demo-galeri-3.jpg", "demo-galeri-4.jpg", "demo-galeri-5.jpg", "demo-galeri-6.jpg"],
 
   // MUSIK: nama file mp3 di folder yang sama. Kosongkan "" jika tidak ada.
   musik: "",
